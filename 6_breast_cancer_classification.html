@@ -52,13 +52,11 @@
                     return{ xs: Object.values(xs), ys: Object.values(ys)};
                 }).batch(10);
                   
-
             // Specify the number of features in the space below.
             // HINT: You can get the number of features from the number of columns
             // and the number of labels in the training data. 
             const numOfFeatures = (await trainingData.columnNames()).length - 1;
             
-                
             // In the space below create a neural network that predicts 1 if the diagnosis is malignant
             // and 0 if the diagnosis is benign. Your neural network should only use dense
             // layers and the output layer should only have a single output unit with a
@@ -75,7 +73,6 @@
             // Compile the model using the binaryCrossentropy loss, 
             // the rmsprop optimizer, and accuracy for your metrics. 
             model.compile({loss: "binaryCrossentropy", optimizer: tf.train.adam(0.06), metrics: ["accuracy"]});
-            
             
             await model.fitDataset(convertedTrainingData, 
                              {epochs:100,
