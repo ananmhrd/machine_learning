@@ -15,31 +15,15 @@ async function train() {
   dataset.ys = null;
   dataset.encodeLabels(5);
     
-  // In the space below create a neural network that can classify hand gestures
-  // corresponding to rock, paper, scissors, lizard, and spock. The first layer
-  // of your network should be a flatten layer that takes as input the output
-  // from the pre-trained MobileNet model. Since we have 5 classes, your output
-  // layer should have 5 units and a softmax activation function. You are free
-  // to use as many hidden layers and neurons as you like.  
-  // HINT: Take a look at the Rock-Paper-Scissors example. We also suggest
-  // using ReLu activation functions where applicable.
   model = tf.sequential({
     layers: [
-        
-      // YOUR CODE HERE
         tf.layers.flatten({inputShape: mobilenet.outputs[0].shape.slice(1)}),
         tf.layers.dense({ units: 100, activation: 'relu'}),
         tf.layers.dense({ units: 5, activation: 'softmax'})
     ]
   });
     
-   
-  // Set the optimizer to be tf.train.adam() with a learning rate of 0.0001.
   const optimizer = tf.train.adam(0.0001);
-    
-        
-  // Compile the model using the categoricalCrossentropy loss, and
-  // the optimizer you defined above.
   model.compile({optimizer: optimizer, loss: 'categoricalCrossentropy'});
  
   let loss = 0;
@@ -53,7 +37,6 @@ async function train() {
       }
    });
 }
-
 
 function handleButton(elem){
 	switch(elem.id){
@@ -73,15 +56,10 @@ function handleButton(elem){
 			spockSamples++;
 			document.getElementById("spocksamples").innerText = "Spock samples:" + spockSamples;
 			break;
-            
-        // Add a case for lizard samples.
-        // HINT: Look at the previous cases.
-            
-        // YOUR CODE HERE
-        case "4":
-            lizardSamples++;
-            document.getElementById("lizardsamples").innerText = "Lizard samples:" + lizardSamples;
-            break;
+		case "4":
+			lizardSamples++;
+			document.getElementById("lizardsamples").innerText = "Lizard samples:" + lizardSamples;
+			break;
             
 	}
 	label = parseInt(elem.id);
@@ -113,14 +91,9 @@ async function predict() {
 		case 3:
 			predictionText = "I see Spock";
 			break;
-            
-        // Add a case for lizard samples.
-        // HINT: Look at the previous cases.
-            
-        // YOUR CODE HERE 
-        case 4:
-            predictionText = "I see Lizard";
-            break;
+	    	case 4:
+		    	predictionText = "I see Lizard";
+		    	break;
             
 	}
 	document.getElementById("prediction").innerText = predictionText;
@@ -147,11 +120,9 @@ function stopPredicting(){
 	predict();
 }
 
-
 function saveModel(){
     model.save('downloads://my_model');
 }
-
 
 async function init(){
 	await webcam.setup();
