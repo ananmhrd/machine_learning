@@ -28,7 +28,7 @@ parser.add_argument('--filename',
                     help='filename of the notebook to check')
 args = parser.parse_args()
 
-ntbk = nbf.read(f'./{args.filename}', nbf.NO_CONVERT)
+ntbk = nbf.read(f'/content/machine_learning/Coursera/Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning/Modul 2/Implementing Callbacks in TensorFlow using the MNIST Dataset/{args.filename}', nbf.NO_CONVERT)
 
 for cell in ntbk.cells:
     
