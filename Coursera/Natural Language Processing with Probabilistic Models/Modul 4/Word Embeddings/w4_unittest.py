@@ -1948,16 +1948,16 @@ def test_gradient_descent(target, data, word2Ind, N, V, num_iters):
             },
             "expected": {
                 "W1": pickle.load(
-                    open("./support_files/gradient_descent/w1.pkl", "rb")
+                    open("/content/machine_learning/Coursera/Natural Language Processing with Probabilistic Models/Modul 4/Word Embeddings/gradient_descent/w1.pkl", "rb")
                 ),
                 "W2": pickle.load(
-                    open("./support_files/gradient_descent/w2.pkl", "rb")
+                    open("/content/machine_learning/Coursera/Natural Language Processing with Probabilistic Models/Modul 4/Word Embeddings/gradient_descent/w2.pkl", "rb")
                 ),
                 "b1": pickle.load(
-                    open("./support_files/gradient_descent/b1.pkl", "rb")
+                    open("/content/machine_learning/Coursera/Natural Language Processing with Probabilistic Models/Modul 4/Word Embeddings/gradient_descent/b1.pkl", "rb")
                 ),
                 "b2": pickle.load(
-                    open("./support_files/gradient_descent/b2.pkl", "rb")
+                    open("/content/machine_learning/Coursera/Natural Language Processing with Probabilistic Models/Modul 4/Word Embeddings/gradient_descent/b2.pkl", "rb")
                 ),
             },
         },
